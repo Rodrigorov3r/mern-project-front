@@ -41,9 +41,12 @@ const Mostrar = () => {
                     <Link to={`editar/${blog.id}`} className="btn btn-info">
                       Editar
                     </Link>
-                    <Link to={`crear/${blog.id}`} className="btn btn-light">
-                      Crear
-                    </Link>
+                    <button
+                      onClick={() => eliminarBlog(blog.id)}
+                      className="btn btn-danger"
+                    >
+                      Borrar
+                    </button>
                   </td>
                 </tr>
               ))}
