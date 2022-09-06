@@ -1,7 +1,10 @@
+import Mostrar from './blogs/Mostrar';
+
 function App() {
   return (
     <div className="App">
-      <h2>LALALAL</h2>
+      <header></header>
+      <Mostrar />
     </div>
   );
 }
