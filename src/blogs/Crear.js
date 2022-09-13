@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Crear = () => {
-  //   const [data, setData] = useState({
-  //     title: '',
-  //     content: '',
-  //   });
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [data, setData] = useState({
+    title: '',
+    content: '',
+  });
+  //const [title, setTitle] = useState('');
+  //const [content, setContent] = useState('');
   const back = useNavigate();
 
   const URL = 'http://localhost:8000/blogs';
@@ -16,19 +16,17 @@ const Crear = () => {
   //post data
   const store = async (e) => {
     e.preventDefault();
-    axios.post(URL, { title: title, content: content });
+    axios.post(URL, { title: data.title, content: data.content });
     back('/');
   };
 
-  //   const handleInput = (e) => {
-  //     const { name, value } = e.target;
-
-  //     setData({
-  //       ...data,
-  //       [name]: value,
-  //     });
-  //     console.log(value);
-  //   };
+  const handleInput = (e) => {
+    console.log(e.target.name);
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div>
@@ -38,8 +36,9 @@ const Crear = () => {
           <label className="form-label">Title</label>
           <input
             type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            name="title"
+            value={data.title}
+            onChange={handleInput}
             className="form-control"
           />
         </div>
@@ -47,8 +46,9 @@ const Crear = () => {
           <label className="form-label">Content</label>
           <textarea
             type="text"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
+            name="content"
+            value={data.content}
+            onChange={handleInput}
             className="form-control"
           />
         </div>
