@@ -23,8 +23,11 @@ const Mostrar = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
-          <div className="table">
+        <div className="col col text-center">
+          <Link to={'/crear'} className="btn btn-primary mt-3 mb-3">
+            <i class="fa-solid fa-circle-plus"></i>
+          </Link>
+          <table className="table">
             <thead className="table-primary">
               <tr>
                 <th>Title</th>
@@ -38,20 +41,23 @@ const Mostrar = () => {
                   <td>{blog.title}</td>
                   <td>{blog.content} </td>
                   <td>
-                    {/* <Link to={`editar/${blog.id}`} className="btn btn-info">
-                      Editar
-                    </Link> */}
+                    <Link
+                      to={`editar/${blog.id}`}
+                      className="btn btn-info mx-2"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </Link>
                     <button
                       onClick={() => eliminarBlog(blog.id)}
                       className="btn btn-danger"
                     >
-                      Borrar
+                      <i class="fa-sharp fa-solid fa-trash"></i>
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </div>
+          </table>
         </div>
       </div>
     </div>
