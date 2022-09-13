@@ -4,7 +4,7 @@ import Crear from './blogs/Crear';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <header></header>
       <BrowserRouter>
         <Routes>
