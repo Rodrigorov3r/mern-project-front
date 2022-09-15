@@ -16,7 +16,7 @@ const Crear = () => {
   //post data
   const store = async (e) => {
     e.preventDefault();
-    axios.post(URL, { title: data.title, content: data.content });
+    await axios.post(URL, { title: data.title, content: data.content });
     back('/');
   };
 
