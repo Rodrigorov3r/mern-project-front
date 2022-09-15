@@ -7,13 +7,15 @@ const Editar = () => {
     title: '',
     content: '',
   });
-  const id = useParams();
+  const { id } = useParams();
 
   const back = useNavigate();
 
-  const URL = 'http://localhost:8000/blogs';
+  const URL = 'http://localhost:8000/blogs/';
 
-  useEffect(() => getBlogId(), []);
+  useEffect(() => {
+    getBlogId();
+  }, []);
 
   //traigo la data de la api para editar con el estado(useState)
   const getBlogId = async () => {
@@ -22,15 +24,6 @@ const Editar = () => {
     setData({
       title: res.data.title,
       content: res.data.content,
-    });
-  };
-
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-
-    setData({
-      ...data,
-      [name]: value,
     });
   };
 
@@ -44,6 +37,12 @@ const Editar = () => {
     back('/');
   };
 
+  const handleInput = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div>
